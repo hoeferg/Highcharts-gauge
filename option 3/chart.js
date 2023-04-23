@@ -26,7 +26,7 @@ Highcharts.chart('container', {
         min: 0,
         max: 200,
         tickPixelInterval: 72,
-        tickPosition: null,
+        tickPosition: 'null',
         minorTickInterval: 'inside',
         labels: {
             distance: 20,
@@ -34,7 +34,8 @@ Highcharts.chart('container', {
                 fontSize: '14px'
             }
         },
-        plotBands: [{
+        plotBands: [
+      /*   {
             from: 0,
             to: 120,
             color: '#55BF3B', // green
@@ -49,7 +50,24 @@ Highcharts.chart('container', {
             to: 200,
             color: '#DF5353', // red
             thickness: 20
-        }]
+        } */
+          {
+            from: 0,
+            to: 120,
+            color: '#DF5353', // green
+            thickness: 20
+        }, {
+            from: 120,
+            to: 160,
+            color: '#DDDF0D', // yellow
+            thickness: 20
+        }, {
+            from: 160,
+            to: 200,
+            color: '#55BF3B', // red
+            thickness: 20
+        }
+        ]
     },
 
     series: [{
@@ -97,8 +115,6 @@ setInterval(() => {
         if (newVal < 0 || newVal > 200) {
             newVal = point.y - inc;
         }
-
         point.update(newVal);
     }
-
 }, 3000);
